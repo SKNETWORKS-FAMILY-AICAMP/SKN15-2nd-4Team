@@ -1,4 +1,3 @@
-#%%
 """
 order_products__prior, products 데이터 사용
 상품 인기 순위 TOP10, BOTTOM10
@@ -93,4 +92,3 @@ def Products_Under_Rank():
         plt.text(v + 1, i, str(v), va='center', fontsize=9)
     plt.tight_layout()
     return plt.show()
-# %%
