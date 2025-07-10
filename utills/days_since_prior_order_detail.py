@@ -1,34 +1,42 @@
+
+
+
+#  이용한 data 파일 명 : orders.csv
+#  이용한 column명 : order_dow, order_hour_of_day, days_since_prior_order, user_id
+
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from data5 import make_data5
 import matplotlib.font_manager as fm
 import matplotlib as mpl
 import glob
 import os
 
-# 1. 리눅스 경로로 폰트 지정
-font_path = "NanumGothic-Bold.ttf"
 
-# 2. 폰트 등록 및 적용
-font_prop = fm.FontProperties(fname=font_path)
-font_name = font_prop.get_name()
-mpl.font_manager.fontManager.addfont(font_path)
-mpl.rc('font', family=font_name)
-plt.rcParams['axes.unicode_minus'] = False
 
-# 3. 폰트 캐시 삭제(최초 적용 시)
-cache_dir = mpl.get_cachedir()
-for cache_file in glob.glob(os.path.join(cache_dir, 'fontlist*')):
-    os.remove(cache_file)
-
-data5 =make_data5()
 def day_hour_days_since_prior_order() :
+    # 1. 리눅스 경로로 폰트 지정
+    font_path = "NanumGothic-Bold.ttf"
+
+    # 2. 폰트 등록 및 적용
+    font_prop = fm.FontProperties(fname=font_path)
+    font_name = font_prop.get_name()
+    mpl.font_manager.fontManager.addfont(font_path)
+    mpl.rc('font', family=font_name)
+    plt.rcParams['axes.unicode_minus'] = False
+
+    # 3. 폰트 캐시 삭제(최초 적용 시)
+    cache_dir = mpl.get_cachedir()
+    for cache_file in glob.glob(os.path.join(cache_dir, 'fontlist*')):
+        os.remove(cache_file)
+    df_orders = pd.read_csv("archive/orders.csv")
+    #### data5 =make_data5()
     # 요일별, 시간별 평균 주문 간격 분석
-    data5.groupby(['order_dow', 'order_hour_of_day'])['days_since_prior_order'].mean()
+    df_orders.groupby(['order_dow', 'order_hour_of_day'])['days_since_prior_order'].mean()
     # groupby 후 평균 계산
-    pivot_table = data5.dropna(subset=['days_since_prior_order']) \
+    pivot_table = df_orders.dropna(subset=['days_since_prior_order']) \
         .groupby(['order_dow', 'order_hour_of_day'])['days_since_prior_order'] \
         .mean().reset_index().pivot(index='order_hour_of_day', columns='order_dow', values='days_since_prior_order')
 
@@ -38,14 +46,31 @@ def day_hour_days_since_prior_order() :
     plt.title("요일 + 시간대별 평균 주문 간격 (days_since_prior_order)")
     plt.xlabel("요일 (0=월요일)")
     plt.ylabel("시간 (24h 기준)")
-    plt.show()
-
+    fig = plt.gcf()  # 현재 figure 객체를 반환
+    return fig
 
 def user_by_days_since_prior_order():
+    # 1. 리눅스 경로로 폰트 지정
+    font_path = "NanumGothic-Bold.ttf"
+
+    # 2. 폰트 등록 및 적용
+    font_prop = fm.FontProperties(fname=font_path)
+    font_name = font_prop.get_name()
+    mpl.font_manager.fontManager.addfont(font_path)
+    mpl.rc('font', family=font_name)
+    plt.rcParams['axes.unicode_minus'] = False
+
+    # 3. 폰트 캐시 삭제(최초 적용 시)
+    cache_dir = mpl.get_cachedir()
+    for cache_file in glob.glob(os.path.join(cache_dir, 'fontlist*')):
+        os.remove(cache_file)
+
     # 사용자별 평균 주문 간격 계산
-    data5.groupby('user_id')['days_since_prior_order'].mean()
+    #data5 =make_data5()
+    df_orders = pd.read_csv("archive/orders.csv")
+    df_orders.groupby('user_id')['days_since_prior_order'].mean()
     # 사용자별 평균 재주문 간격 계산
-    user_avg_gap = data5.dropna(subset=['days_since_prior_order']) \
+    user_avg_gap = df_orders.dropna(subset=['days_since_prior_order']) \
         .groupby('user_id')['days_since_prior_order'].mean()
 
     # 히스토그램 계산
@@ -81,13 +106,31 @@ def user_by_days_since_prior_order():
     plt.ylabel("사용자 수")
     plt.xticks(rotation=0)
     plt.tight_layout()
-    plt.show()
+    fig = plt.gcf()  # 현재 figure 객체를 반환
+    return fig
 
 def user_by_days_since_prior_order_line_graph() :
+        # 1. 리눅스 경로로 폰트 지정
+    font_path = "NanumGothic-Bold.ttf"
+
+    # 2. 폰트 등록 및 적용
+    font_prop = fm.FontProperties(fname=font_path)
+    font_name = font_prop.get_name()
+    mpl.font_manager.fontManager.addfont(font_path)
+    mpl.rc('font', family=font_name)
+    plt.rcParams['axes.unicode_minus'] = False
+
+    # 3. 폰트 캐시 삭제(최초 적용 시)
+    cache_dir = mpl.get_cachedir()
+    for cache_file in glob.glob(os.path.join(cache_dir, 'fontlist*')):
+        os.remove(cache_file)
+
     # 사용자별 평균 주문 간격 계산
-    data5.groupby('user_id')['days_since_prior_order'].mean()
+    # data5 =make_data5()
+    df_orders = pd.read_csv("archive/orders.csv")
+    df_orders.groupby('user_id')['days_since_prior_order'].mean()
     # 사용자별 평균 재주문 간격 계산
-    user_avg_gap = data5.dropna(subset=['days_since_prior_order']).groupby('user_id')['days_since_prior_order'].mean()
+    user_avg_gap = df_orders.dropna(subset=['days_since_prior_order']).groupby('user_id')['days_since_prior_order'].mean()
     counts, bin_edges = np.histogram(user_avg_gap, bins=50)
     bin_centers = 0.5 * (bin_edges[1:] + bin_edges[:-1])  # 구간 중심값
 
@@ -100,13 +143,31 @@ def user_by_days_since_prior_order_line_graph() :
 
     plt.grid(True)
     plt.tight_layout()
-    plt.show()
+    fig = plt.gcf()  # 현재 figure 객체를 반환
+    return fig
 
 
 def order_dow_by_days_since_prior_order():
+        # 1. 리눅스 경로로 폰트 지정
+    font_path = "NanumGothic-Bold.ttf"
+    
+    # 2. 폰트 등록 및 적용
+    font_prop = fm.FontProperties(fname=font_path)
+    font_name = font_prop.get_name()
+    mpl.font_manager.fontManager.addfont(font_path)
+    mpl.rc('font', family=font_name)
+    plt.rcParams['axes.unicode_minus'] = False
+    
+    # 3. 폰트 캐시 삭제(최초 적용 시)
+    cache_dir = mpl.get_cachedir()
+    for cache_file in glob.glob(os.path.join(cache_dir, 'fontlist*')):
+        os.remove(cache_file)
+    
     # 요일별 평균 재주문 주기
-    data5.groupby('order_dow')['days_since_prior_order'].mean()
-    dow_avg = data5.dropna(subset=['days_since_prior_order']) \
+    #data5 =make_data5()
+    df_orders = pd.read_csv("archive/orders.csv")
+    df_orders.groupby('order_dow')['days_since_prior_order'].mean()
+    dow_avg = df_orders.dropna(subset=['days_since_prior_order']) \
     .groupby('order_dow')['days_since_prior_order'].mean()
 
     # 시각화
@@ -115,37 +176,26 @@ def order_dow_by_days_since_prior_order():
     plt.title("요일별 평균 재주문 간격")
     plt.xlabel("요일 (0=월요일)")
     plt.ylabel("평균 재주문 간격")
-    plt.show()
+    fig = plt.gcf()  # 현재 figure 객체를 반환
+    return fig
 
-def order_count_by_all_user() :
-    # 사용자별 총 주문 횟수 계산
-    user_order_counts = data5.groupby('user_id')['order_number'].max()
-
-    # 주문 횟수별 사용자 수 집계 (index: 주문 수, value: 사용자 수)
+def order_count_by_all_user():
+    df_orders = pd.read_csv("archive/orders.csv")
+    user_order_counts = df_orders.groupby('user_id')['order_number'].max()
     order_count_dist = user_order_counts.value_counts().sort_index()
 
-    # 데이터프레임으로 변환
     order_count_df = pd.DataFrame({
         'order_count': order_count_dist.index,
         'user_count': order_count_dist.values
-    })
-    order_count_df.reset_index(drop=True, inplace=True)
+    }).reset_index(drop=True)
 
-    # 사용자 수 기준 내림차순 정렬
     order_count_df_sorted = order_count_df.sort_values(by='user_count', ascending=False).reset_index(drop=True)
-
-    # 순위 컬럼 ('1위', '2위', ...) 추가
     order_count_df_sorted['순위'] = (order_count_df_sorted.index + 1).astype(str) + '위'
-
-    # 컬럼 순서 변경 및 순위 인덱스로 설정
     order_count_df_sorted = order_count_df_sorted[['순위', 'order_count', 'user_count']]
     order_count_df_sorted.set_index('순위', inplace=True)
-
-    # 컬럼명 한글로 변경
     order_count_df_sorted.rename(columns={
         'order_count': '총 주문 수',
         'user_count': '총 사용자 수'
     }, inplace=True)
 
-    # 결과 확인 (Top 10)
-    order_count_df_sorted.head(10)
+    return order_count_df_sorted  # ✅ DataFrame 반환
