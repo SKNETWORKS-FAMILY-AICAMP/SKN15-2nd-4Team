@@ -1,4 +1,3 @@
-# %%
 import pandas as pd
 import os
 import seaborn as sns
@@ -66,4 +65,3 @@ def PART_Dataframe():
     product_count = product_count[['순위', '상품 대분류', '상품 개수']]
     product_count.set_index('순위', inplace=True)
     return(product_count)
-# %%
