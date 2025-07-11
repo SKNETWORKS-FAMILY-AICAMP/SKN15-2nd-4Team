@@ -78,6 +78,10 @@
 
 <img width="1092" height="638" alt="image" src="https://github.com/user-attachments/assets/17084752-4549-424f-8f00-1338ab215e34" />
 
+<img width="1266" height="693" alt="image" src="https://github.com/user-attachments/assets/8aa1241e-f388-4daa-bb87-e768c58dd83e" />
+
+<img width="1126" height="632" alt="image" src="https://github.com/user-attachments/assets/cd09f48d-bfb2-4c38-8297-4a05c9618d51" />
+
 
 
 # 6. 한 줄 회고
