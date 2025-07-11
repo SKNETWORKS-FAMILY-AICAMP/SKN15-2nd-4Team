@@ -5,18 +5,27 @@ import shap
 import joblib
 import numpy as np
 from utils.streamlit_variable_rank_by_importance import feature_importance_df, train_variable
+from utils.model_detail import plot_churn_rate, set_churn, analyze_churn_by_order_cycle, analyze_regular_customer_churn
 
 def model_explain():
     st.title("🧠 고객 이탈 예측 모델 설명")
-
     # ---------------------
     # 1. 이탈 정의
     # ---------------------
-    st.header("1️⃣ 이탈 고객 정의 기준")
+    st.header("1️⃣ 이탈 정의 ")
     st.markdown("""
-    - 이 프로젝트에서는 **'30일 이상 미구매'**한 고객을 **이탈 고객**으로 정의했습니다.
-    - 또한, 마지막 주문 이후 구매 주기를 고려하여 평균 이상으로 **비활성 상태**인 고객도 포함했습니다.
+    - 이 프로젝트에서는 **고객 특성별 특정일 이상 미구매**한 고객을 **이탈 위험 고객**으로 정의
+    - 마지막 주문 후 경과일(`days_since_prior_order`)을 기준으로 미구매한 고객을 이탈 위험 고객으로 간주
+    - 또한, 마지막 주문 이후 구매 주기를 고려하여 평균 이상으로 **비활성 상태**인 고객도 포함
+    - 데이터의 한계 : 이탈 기준일은 명확하게 이탈한 것을 판단하는 것이 아니라, **이탈했을 가능성**을 가정
+        * `days_since_prior_order`(마지막 주문 후 경과일)은 데이터셋에서 최대 30일의 값을 가짐.
+        * 30일 째의 이탈율은 약 30.64%로, 그 이후의 추이는 확인할 수 없음
     """)
+
+    plot_churn_rate()
+    set_churn()
+    analyze_regular_customer_churn()
+    analyze_churn_by_order_cycle()
 
     # ---------------------
     # 2. 사용한 변수
