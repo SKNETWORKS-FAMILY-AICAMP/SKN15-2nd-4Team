@@ -65,7 +65,7 @@
 
 # 5. 수행결과(분석 및 예측 결과)
 1. ERD
-2. 
+![ERD](images/"C:\Users\Playdata\Downloads\erd (1).png) 
    ./png("C:\Users\Playdata\Downloads\erd (1).png")
 
 3. 이탈 정의
