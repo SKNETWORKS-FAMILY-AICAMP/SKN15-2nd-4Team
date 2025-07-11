@@ -78,7 +78,7 @@ days_since_prior_order(마지막 주문 후 경과일)은 데이터셋에서 최
 30일 째의 이탈율은 약 30.64%로, 그 이후의 추이는 확인할 수 없음
 
    
-4. 화면 구성
+3. 화면 구성
 
 <img width="1092" height="638" alt="image" src="https://github.com/user-attachments/assets/17084752-4549-424f-8f00-1338ab215e34" />
 
