@@ -5,7 +5,7 @@
 
 | 강민정 | 김민규 | 신지혜 | 이세진 | 임경원 | 조태민 |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| [@kmj212936](https://github.com/kmj212936) | [@kmklifegk](https://github.com/kmklifegk) | [@jyedu](https://github.com/JYEDU) | [@jyedu](https://github.com/JYEDU) | [@KYUNGWON-99](https://github.com/KYUNGWON-99) | [@sunsnu](https://github.com/sunsnu) |
+| [@kmj212936](https://github.com/kmj212936) | [@kmklifegk](https://github.com/kmklifegk) | [@jyedu](https://github.com/JYEDU) | [@isjini](https://github.com/isjini) | [@KYUNGWON-99](https://github.com/KYUNGWON-99) | [@sunsnu](https://github.com/sunsnu) |
 
 # 2. 프로젝트 기간
 - 2025.07.10 ~ 2025.07.11 (총 2일)
