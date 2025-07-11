@@ -77,7 +77,8 @@
 5. 화면 구성
 
 
-<img width="1176" height="928" alt="image" src="https://github.com/user-attachments/assets/5ed29589-81c4-4724-9ec8-ad0ed87f00a8" />
+<img width="1176" height="928" alt="image" src="https://github.com/user-attachments/assets/5ed29589-81c4-4724-9ec8-ad0ed87f00a8" /><img width="794" height="811" alt="image(1)" src="https://github.com/user-attachments/assets/e198697f-e131-45d9-aa31-8ced8148f68b" />
+
 
 
 # 6. 한 줄 회고
