@@ -68,7 +68,7 @@
 
 ![ERD](images/erd.png) 
 
-3. 이탈 정의
+2. 이탈 정의
 
 이 프로젝트에서는 고객 특성별 특정일 이상 미구매한 고객을 이탈 위험 고객으로 정의
 마지막 주문 후 경과일(days_since_prior_order)을 기준으로 미구매한 고객을 이탈 위험 고객으로 간주
@@ -77,11 +77,8 @@
 days_since_prior_order(마지막 주문 후 경과일)은 데이터셋에서 최대 30일의 값을 가짐.
 30일 째의 이탈율은 약 30.64%로, 그 이후의 추이는 확인할 수 없음
 
-
-4. 이탈 가능성 예측 모델링
-
    
-5. 화면 구성
+4. 화면 구성
 
 <img width="1092" height="638" alt="image" src="https://github.com/user-attachments/assets/17084752-4549-424f-8f00-1338ab215e34" />
 
