@@ -65,15 +65,16 @@
 
 # 5. 수행결과(분석 및 예측 결과)
 1. ERD
-![image]("C:\Users\Playdata\Downloads\erd (1).png")
+2. 
+/.image("C:\Users\Playdata\Downloads\erd (1).png")
 
-2. 이탈 정의
+3. 이탈 정의
 
 
-3. 이탈 가능성 예측 모델링
+4. 이탈 가능성 예측 모델링
 
    
-4. 화면 구성
+5. 화면 구성
 
 
 
