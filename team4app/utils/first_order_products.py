@@ -39,9 +39,9 @@ def first_order_products():
 
     # 첫 주문 상품 데이터와 상품 정보를 병합하여 상품 이름을 가져옵니다.
     first_order_products_with_names = pd.merge(first_order_products,
-                                                     products_df[['product_id', 'product_name']],
-                                                     on='product_id',
-                                                     how='left')
+                                                    products_df[['product_id', 'product_name']],
+                                                    on='product_id',
+                                                    how='left')
 
     # 각 상품별로 첫 주문에 포함된 횟수를 집계합니다.
     first_order_product_counts = first_order_products_with_names['product_name'].value_counts().reset_index()
@@ -71,5 +71,4 @@ def first_order_products():
     ax.grid(axis='x', linestyle='--', alpha=0.7) # x축 그리드 라인 추가
     plt.tight_layout() # 그래프 요소들이 잘 맞도록 자동 조정
     st.pyplot(fig)
- 
 

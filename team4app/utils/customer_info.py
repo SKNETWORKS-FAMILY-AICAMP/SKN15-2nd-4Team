@@ -1,33 +1,25 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import numpy as np
 
 def customer_info():
+    data=pd.read_csv('./mydata/tmp5.csv')
+    customer_number = data.user_id.nunique()
+    buying_number = data['max_items'].sum()
+    order_number = data.order_id.nunique()
 
     # KPI Section
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("전체 고객 수", "15,200")
-    col2.metric("이탈 잠재 고객 수", "2,150", "-3.5%")
-    col3.metric("총 누적 구매 수", "124,000")
-    col4.metric("오늘의 구매 수", "1,237")
+    col1.metric("전체 고객 수", f"{customer_number:,}")
+    col2.metric("이탈 잠재 고객 수", "41,547")
+    col3.metric("누적 주문 수", f"{order_number:,}")
+    col4.metric("누적 판매 상품 수", f"{buying_number:,}")
 
     st.divider()
 
     # 이탈 위험 등급 분포
     st.subheader("이탈 위험 등급별 고객 분포")
-    risk_dist = pd.DataFrame({"위험등급": ["High", "Medium", "Low"], "고객수": [500, 1000, 650]})
-    fig = px.pie(risk_dist, names="위험등급", values="고객수", hole=0.4)
-    st.plotly_chart(fig, use_container_width=True)
+    st.image("../images/Types of risk groups for leaving.png", caption="이탈 위험군 타입별 비율(%)", use_container_width=True)
+    st.image("../images/dropout_risk_groups.png",caption="전체 고객의 이탈 위험군 vs 비위험군 비율(%)", use_container_width=True)
 
-    # 회원 등급별 이탈율
-    st.subheader("고객 멤버십별 이탈률 현황")
-    # 예시 데이터프레임
-    membership_data = pd.DataFrame({
-        "등급": ["Basic", "Silver", "Gold", "Platinum"],
-        "이탈률(%)": [30, 20, 10, 5]
-    })
-    st.bar_chart(membership_data.set_index("등급"))
-
-    # 이탈 Top 고객 표
-    st.subheader("📉 이탈 가능성 높은 고객 리스트")
-    # 여기에 예측 데이터에서 top 10만 보여주는 표 삽입

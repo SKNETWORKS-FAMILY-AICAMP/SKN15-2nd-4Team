@@ -8,6 +8,7 @@ import matplotlib.font_manager as fm
 import matplotlib as mpl
 import os
 import glob
+import streamlit as st
 
 def Product_Count_Per_Department():
     # 1. 폰트 설정 (한글 표시용)
@@ -38,13 +39,10 @@ def Product_Count_Per_Department():
     dept_counts = dept_counts.sort_values(by='product_count', ascending=False)
 
     # 7. 시각화
-    plt.figure(figsize=(12, 6))
-    plt.barh(dept_counts['department'][::-1], dept_counts['product_count'][::-1], color='mediumseagreen')
-    plt.xlabel('품목 수')
-    plt.title('부서별 등록된 품목 개수')
+    fig, ax = plt.subplots(figsize=(12, 6))
+    ax.barh(dept_counts['department'][::-1], dept_counts['product_count'][::-1], color='mediumseagreen')
+    ax.set_xlabel('품목 수')
+    ax.set_title('부서별 등록된 품목 개수')
     for i, v in enumerate(dept_counts['product_count'][::-1]):
-        plt.text(v + 10, i, str(v), va='center', fontsize=9)
-    plt.tight_layout()
-    plt.show()
-
-    return plt.show()
+        ax.text(v + 10, i, str(v), va='center', fontsize=9)
+    st.pyplot(fig)

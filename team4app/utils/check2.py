@@ -1,19 +1,19 @@
 import streamlit as st
 import pandas as pd
 import matplotlib as mpl
-from data5 import make_data5  # 메모리 최적화된 전처리 함수
+from utils.data5 import make_data5  # 메모리 최적화된 전처리 함수
 
-# 전체 페이지 레이아웃
-st.set_page_config(layout="wide")
+# # 전체 페이지 레이아웃
+# st.set_page_config(layout="wide")
 
-# 한글 폰트 설정 (윈도우 기준)
-mpl.rc('font', family='Malgun Gothic')
-st.markdown("""
-<style>
-thead tr th:first-child {display:none}
-tbody th {display:none}
-</style>
-""", unsafe_allow_html=True)
+# # 한글 폰트 설정 (윈도우 기준)
+# mpl.rc('font', family='Malgun Gothic')
+# st.markdown("""
+# <style>
+# thead tr th:first-child {display:none}
+# tbody th {display:none}
+# </style>
+# """, unsafe_allow_html=True)
 
 
 @st.cache_data
@@ -25,7 +25,7 @@ def highlight_rank(s):
     return [f'background-color: {color}' if col == '순위' else '' for col in s.index]
 
 def reorder_rate_ranking():
-    st.title("📋 상품 재구매율 랭킹")
+    #st.title("📋 상품 재구매율 랭킹")
     st.markdown("""
     이 페이지는 고객들이 얼마나 자주 같은 상품을 재구매하는지를 기반으로  
     **Top 10 / Bottom 10 재구매율 상품**을 나란히 제공합니다.
@@ -103,6 +103,6 @@ def reorder_rate_ranking():
 
     st.caption("※ 50회 이상 주문된 상품 기준")
 
-# 실행
-if __name__ == '__main__':
-    reorder_rate_ranking()
+# # 실행
+# if __name__ == '__main__':
+#     reorder_rate_ranking()

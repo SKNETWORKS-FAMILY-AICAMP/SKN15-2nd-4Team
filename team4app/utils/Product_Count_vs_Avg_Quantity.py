@@ -68,3 +68,4 @@ def Product_Count_vs_Avg_Quantity():
 #     st.title("🛍️ 상품 분석: 주문 수량 관계")
 #     fig_scatter = Product_Count_vs_Avg_Quantity()
 #     st.pyplot(fig_scatter)
+

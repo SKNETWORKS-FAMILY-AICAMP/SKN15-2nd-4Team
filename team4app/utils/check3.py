@@ -53,8 +53,8 @@ def highlight_rank(s):
     return [f'background-color: {color}' if col == '순위' else '' for col in s.index]
 
 def app():
-    with st.container():
-        st.title("🛒 첫번째/마지막 담긴 상품 Top 10 랭킹")
+    # with st.container():
+    #     st.title("🛒 첫번째/마지막 담긴 상품 Top 10 랭킹")
 
     data = load_data_slim()
     core_top, last_top = core_last_ranking(data)

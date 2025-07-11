@@ -10,6 +10,7 @@ import matplotlib.font_manager as fm
 import matplotlib as mpl
 import glob
 import os
+import streamlit as st
 
 def Products_Rank():
     # 1. 폰트 지정
@@ -47,13 +48,8 @@ def Products_Rank():
     ax.set_xlabel('총 주문 수')
     ax.set_title('구매 품목 TOP 10')
 
-    # 6. 막대 위에 숫자 표시
-    for i, v in enumerate(top10['order_count'][::-1]):
-        ax.text(v + 100, i, str(v), va='center', fontsize=9)
+    st.pyplot(fig)
 
-    fig.tight_layout()
-
-    return fig
 
 
 def Products_Under_Rank():
@@ -85,12 +81,10 @@ def Products_Under_Rank():
 
     bottom10 = product_orders.sort_values(by='order_count', ascending=True).head(10)
 
-    plt.figure(figsize=(10, 6))
-    plt.barh(bottom10['product_name'], bottom10['order_count'], color='lightcoral')
-    plt.xlabel('총 주문 수')
-    plt.title('구매 품목 하위 10')
-    for i, v in enumerate(bottom10['order_count']):
-        plt.text(v + 1, i, str(v), va='center', fontsize=9)
-    plt.tight_layout()
-    fig = plt.gcf()
-    return fig
+    # 5. 시각화
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.barh(bottom10['product_name'], bottom10['order_count'], color='lightcoral')
+    ax.set_xlabel('총 주문 수')
+    ax.set_title('구매 품목 BOTTOM 10')
+
+    st.pyplot(fig)
