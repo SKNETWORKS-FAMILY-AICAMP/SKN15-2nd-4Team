@@ -64,8 +64,8 @@
 
 
 # 5. 수행결과(분석 및 예측 결과)
-1. 데이터 소개
-
+1. ERD
+![image]("C:\Users\Playdata\Downloads\erd (1).png")
 
 2. 이탈 정의
 
