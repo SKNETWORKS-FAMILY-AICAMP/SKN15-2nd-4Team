@@ -8,7 +8,7 @@
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | [@kmj212936](https://github.com/kmj212936) | [@kmklifegk](https://github.com/kmklifegk) | [@jyedu](https://github.com/JYEDU) | [@isjini](https://github.com/isjini) | [@KYUNGWON-99](https://github.com/KYUNGWON-99) | [@sunsnu](https://github.com/sunsnu) |
 
-|내 물품좀 4조는 SKN 15기 2차 과제를 함께하게 된 팀으로, 이번 주제인 고객 이탈 예측 및 마켓팅과 연관 지어 만들어진 팀명입니다.|
+내 물품좀 4조는 SKN 15기 2차 과제를 함께하게 된 팀으로, 이번 주제인 고객 이탈 예측 및 마켓팅과 연관 지어 만들어진 팀명입니다.
 # 2. 프로젝트 기간
 - 2025.07.10 ~ 2025.07.11 (총 2일)
 
